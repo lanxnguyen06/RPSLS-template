@@ -13,7 +13,14 @@ package Choices;
 // Rock was already partially implemented as an example
 // You may make changes to the structure and type of both classes!
 
-public class Choice {
+public abstract class Choice {
+
+    public abstract String getName();
+    
+    public abstract String competeExplanation(Choice otherPlayerChoice);
+
+    public abstract int determineWin(Choice otherPlayerChoice);
+
 
     // NO NEED TO TOUCH compete()
     public int compete(Choice otherPlayerChoice) {

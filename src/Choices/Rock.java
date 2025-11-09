@@ -6,7 +6,31 @@
 
 package Choices;
 
-public class Rock {
+public class Rock extends Choice{
+
+    @Override
+    public String getName(){
+        return GameChoices.ROCK;
+    }
+
+    @Override
+    public String competeExplanation(Choice otherPlayerChoice){
+        if  (otherPlayerChoice instanceof Rock)
+            return "Rock does nothing to rock! It's a tie!";
+        else if (otherPlayerChoice instanceof Paper)
+            return "Rock covers paper! Rock wins!";
+        else if (otherPlayerChoice instanceof Scissors)
+            return "Rock breaks scissors! Rock wins!";
+        else if (otherPlayerChoice instanceof Lizard)
+            return "Rock crushes lizard! Rock wins!";
+        else if (otherPlayerChoice instanceof Spock)
+            return "Rock gets vaporized by spock! Spock wins!";
+    }
+
+    @Override
+    public int determineWin(Choice otherPlayerChoice){
+
+    }
 
     // TODO Implement a specific version of getName() for each choice
     // Hint: Make use of GameChoices to get a nice representation of the name!
