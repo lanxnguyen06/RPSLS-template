@@ -7,29 +7,34 @@ public class Spock extends Choice{
         return GameChoices.ROCK;
     }
 
-    @Override
-    public String competeExplanation(Choice otherPlayerChoice){
-        if  (otherPlayerChoice instanceof Rock)
-            return "Spock vaporizes rock! Spock wins!";
-        else if (otherPlayerChoice instanceof Paper)
-            return "Spock gets disproved by paper! Spock loses!";
-        else if (otherPlayerChoice instanceof Scissors)
-            return "Spock melts rock! Spock wins!";
-        else if (otherPlayerChoice instanceof Lizard)
-            return "Spock gets poisoned by lizard! Spock loses!";
-        else if (otherPlayerChoice instanceof Spock)
-            return "Spock does nothing to spock! It's a tie";
-        return "Invalid choice.";
+    public String competeExplanation(Choice otherPlayerChoice) {
+        switch (otherPlayerChoice){
+            case Rock r:
+                return "Spock vaporizes rock! Spock wins!";
+            case Paper p:
+                return "Spock gets disproved by paper! Spock loses!";
+            case Scissors s:
+                return "Spock melts scissors! Spock wins!";
+            case Lizard l:
+                return "Spock gets poisoned by lizard! Spock loses!";
+            case Spock sp:
+                return "Spock does nothing to spock! It's a tie";
+            default:
+                return "Invalid choice.";
+        }
     }
 
     @Override
     public int determineWin(Choice otherPlayerChoice){
-        if (otherPlayerChoice instanceof Spock)
-            return 0; // tie
-        else if (otherPlayerChoice instanceof Paper || otherPlayerChoice instanceof Lizard)
-            return -1; // lose
-        else 
-            return 1; // win
+        switch (otherPlayerChoice){
+            case Spock sp:
+                return 0; // tie
+            case Scissors s:
+                return 1; // win
+            case Rock r:
+                return 1; // win
+            default:
+                return -1; // loss (paper or lizard)
+        }
     }
-    
 }

@@ -8,28 +8,36 @@ public class Scissors extends Choice{
     }
 
     @Override
-    public String competeExplanation(Choice otherPlayerChoice){
-        if  (otherPlayerChoice instanceof Rock)
-            return "Scissors gets broken by rock! Scissors loses!";
-        else if (otherPlayerChoice instanceof Paper)
-            return "Scissors cut paper! Scissors wins!";
-        else if (otherPlayerChoice instanceof Scissors)
-            return "Scissors does nothing to scissors! It's a tie!";
-        else if (otherPlayerChoice instanceof Lizard)
-            return "Scissors decapitate lizard! Scissors wins!";
-        else if (otherPlayerChoice instanceof Spock)
-            return "Scissors gets melted by spock! Scissors loses!";
-        return "Invalid choice.";
+    public String competeExplanation(Choice otherPlayerChoice) {
+        switch (otherPlayerChoice){
+            case Rock r:
+                return "Scissors gets broken by rock! Scissors loses!";
+            case Paper p:
+                return "Scissors cut paper! Scissors wins!";
+            case Scissors s:
+                return "Scissors does nothing to scissors! It's a tie!";
+            case Lizard l:
+                return "Scissors decapitates lizard! Scissors wins!";
+            case Spock sp:
+                return "Scissors gets melted by spock! Scissors loses!";
+            default:
+                return "Invalid choice.";
+        }
     }
+
 
     @Override
     public int determineWin(Choice otherPlayerChoice){
-        if (otherPlayerChoice instanceof Scissors)
-            return 0; // tie
-        else if (otherPlayerChoice instanceof Rock || otherPlayerChoice instanceof Spock)
-            return -1; // lose
-        else 
-            return 1; // win
+        switch (otherPlayerChoice){
+            case Scissors s:
+                return 0; // tie
+            case Paper p:
+                return 1; // win
+            case Lizard l:
+                return 1; // win
+            default:
+                return -1; // loss (rock or spock)
+        }
     }
     
 }

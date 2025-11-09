@@ -14,28 +14,36 @@ public class Rock extends Choice{
     }
 
     @Override
-    public String competeExplanation(Choice otherPlayerChoice){
-        if  (otherPlayerChoice instanceof Rock)
-            return "Rock does nothing to rock! It's a tie!";
-        else if (otherPlayerChoice instanceof Paper)
-            return "Rock get covered paper! Rock loses!";
-        else if (otherPlayerChoice instanceof Scissors)
-            return "Rock breaks scissors! Rock wins!";
-        else if (otherPlayerChoice instanceof Lizard)
-            return "Rock crushes lizard! Rock wins!";
-        else if (otherPlayerChoice instanceof Spock)
-            return "Rock gets vaporized by spock! Rock loses!";
-        return "Invalid choice.";
+    public String competeExplanation(Choice otherPlayerChoice) {
+        switch (otherPlayerChoice){
+            case Rock r:
+                return "Rock does nothing to rock! It's a tie!";
+            case Paper p:
+                return "Rock gets covered by paper! Rock loses!";
+            case Scissors s:
+                return "Rock breaks scissors! Rock wins!";
+            case Lizard l:
+                return "Rock crushes lizard! Rock wins!";
+            case Spock sp:
+                return "Rock gets vaporized by spock! Rock loses!";
+            default:
+                return "Invalid choice.";
+        }
     }
+
 
     @Override
     public int determineWin(Choice otherPlayerChoice){
-        if (otherPlayerChoice instanceof Rock)
-            return 0; // tie
-        else if (otherPlayerChoice instanceof Paper || otherPlayerChoice instanceof Spock)
-            return -1; // lose
-        else 
-            return 1; // win
+        switch (otherPlayerChoice){
+            case Rock r:
+                return 0; // tie
+            case Scissors s:
+                return 1; // win
+            case Lizard l:
+                return 1; // win
+            default:
+                return -1; // loss (paper or spock)
+        }
     }
 
     // TODO Implement a specific version of getName() for each choice

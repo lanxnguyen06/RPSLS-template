@@ -8,28 +8,36 @@ public class Lizard extends Choice {
     }
 
     @Override
-    public String competeExplanation(Choice otherPlayerChoice){
-        if  (otherPlayerChoice instanceof Rock)
-            return "Lizard gets crushed by rock! Lizard loses!";
-        else if (otherPlayerChoice instanceof Paper)
-            return "Lizard eats paper! Lizard wins!";
-        else if (otherPlayerChoice instanceof Scissors)
-            return "Lizard gets decapitated by scissors! Lizard loses!";
-        else if (otherPlayerChoice instanceof Lizard)
-            return "Lizard does nothing to lizard! It's a tie!";
-        else if (otherPlayerChoice instanceof Spock)
-            return "Lizard poisons spock! Lizard wins!";
-        return "Invalid choice.";
+    public String competeExplanation(Choice otherPlayerChoice) {
+        switch (otherPlayerChoice){
+            case Rock r:
+                return "Lizard gets crushed by rock! Lizard loses!";
+            case Paper p:
+                return "Lizard eats paper! Lizard wins!";
+            case Scissors s:
+                return "Lizard gets decapitated by scissors! Lizard loses!";
+            case Lizard l:
+                return "Lizard does nothing to lizard! It's a tie!";
+            case Spock sp:
+                return "Lizard poisons spock! Lizard wins!";
+            default:
+                return "Invalid choice.";
+        }
     }
+
 
     @Override
     public int determineWin(Choice otherPlayerChoice){
-        if (otherPlayerChoice instanceof Lizard)
-            return 0; // tie
-        else if (otherPlayerChoice instanceof Rock || otherPlayerChoice instanceof Scissors)
-            return -1; // lose
-        else 
-            return 1; // win
+        switch (otherPlayerChoice){
+            case Lizard l:
+                return 0; // tie
+            case Paper p:
+                return 1; // win
+            case Spock s:
+                return 1; // win
+            default:
+                return -1; // loss (paper or spock)
+        }
     }
     
 }
