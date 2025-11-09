@@ -19,6 +19,7 @@ public class Lizard extends Choice {
             return "Lizard does nothing to lizard! It's a tie!";
         else if (otherPlayerChoice instanceof Spock)
             return "Lizard poisons spock! Lizard wins!";
+        return "Invalid choice.";
     }
 
     @Override

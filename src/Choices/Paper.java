@@ -19,6 +19,7 @@ public class Paper extends Choice{
             return "Paper gets eaten by lizard! Paper loses!";
         else if (otherPlayerChoice instanceof Spock)
             return "Paper disproves spock! Paper wins!";
+        return "Invalid choice.";
     }
 
     @Override

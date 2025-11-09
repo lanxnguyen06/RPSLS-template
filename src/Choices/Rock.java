@@ -25,6 +25,7 @@ public class Rock extends Choice{
             return "Rock crushes lizard! Rock wins!";
         else if (otherPlayerChoice instanceof Spock)
             return "Rock gets vaporized by spock! Rock loses!";
+        return "Invalid choice.";
     }
 
     @Override

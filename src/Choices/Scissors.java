@@ -19,6 +19,7 @@ public class Scissors extends Choice{
             return "Scissors decapitate lizard! Scissors wins!";
         else if (otherPlayerChoice instanceof Spock)
             return "Scissors gets melted by spock! Scissors loses!";
+        return "Invalid choice.";
     }
 
     @Override

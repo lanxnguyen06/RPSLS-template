@@ -19,6 +19,7 @@ public class Spock extends Choice{
             return "Spock gets poisoned by lizard! Spock loses!";
         else if (otherPlayerChoice instanceof Spock)
             return "Spock does nothing to spock! It's a tie";
+        return "Invalid choice.";
     }
 
     @Override
