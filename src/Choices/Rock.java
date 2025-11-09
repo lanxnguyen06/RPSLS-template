@@ -29,7 +29,12 @@ public class Rock extends Choice{
 
     @Override
     public int determineWin(Choice otherPlayerChoice){
-
+        if (otherPlayerChoice instanceof Rock)
+            return 0; // tie
+        else if (otherPlayerChoice instanceof Paper || otherPlayerChoice instanceof Spock)
+            return -1; // lose
+        else 
+            return 1; // win
     }
 
     // TODO Implement a specific version of getName() for each choice

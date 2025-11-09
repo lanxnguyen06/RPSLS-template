@@ -23,7 +23,12 @@ public class Scissors extends Choice{
 
     @Override
     public int determineWin(Choice otherPlayerChoice){
-
+        if (otherPlayerChoice instanceof Scissors)
+            return 0; // tie
+        else if (otherPlayerChoice instanceof Rock || otherPlayerChoice instanceof Spock)
+            return -1; // lose
+        else 
+            return 1; // win
     }
     
 }
