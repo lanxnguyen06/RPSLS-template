@@ -37,16 +37,49 @@ public class RockPaperScissorsLizardSpock {
     // TODO: implement a method to convert the player's input into a choice
     private Choice getChoice(String choice) {
         choice = choice.toLowerCase();
+
+        if (choice == null)
+            return null;
+        else{
+            switch(choice){
+                case "lizard":
+                    return new Lizard();
+                case "paper":
+                    return new Paper();
+                case "rock":
+                    return new Rock();
+                case "scissors":
+                    return new Scissors();
+                case "spock":
+                    return new Spock();
+                default:
+                    return new Lizard(); // default case
+            }
+        }
         // Check the passed string and return a Choice object (i.e., Rock, Paper, Scissors, Lizard, or Spock)
         // Pick a default case
-        return null;
     }
 
     // TODO: implement a method to get a random choice for the computer
     private Choice getRandomChoice() {
+        int rando = random.nextInt(5); // taken from Random class, 0-4 (exclusive of 5)
+
+        switch (rando){
+            case 0:
+                return new Lizard();
+            case 1:
+                return new Paper();
+            case 2:
+                return new Rock();
+            case 3:
+                return new Scissors();
+            case 4:
+                return new Spock();
+            default:
+                return new Lizard(); // default case
+        }
         // Based on a random number, return a Choice object (i.e., Rock, Paper, Scissors, Lizard, or Spock)
         // Pick a default case
-        return null;
     }
 
     // TODO: implement the main game loop and overall game win check here
