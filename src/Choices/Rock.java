@@ -18,13 +18,13 @@ public class Rock extends Choice{
         if  (otherPlayerChoice instanceof Rock)
             return "Rock does nothing to rock! It's a tie!";
         else if (otherPlayerChoice instanceof Paper)
-            return "Rock covers paper! Rock wins!";
+            return "Rock get covered paper! Rock loses!";
         else if (otherPlayerChoice instanceof Scissors)
             return "Rock breaks scissors! Rock wins!";
         else if (otherPlayerChoice instanceof Lizard)
             return "Rock crushes lizard! Rock wins!";
         else if (otherPlayerChoice instanceof Spock)
-            return "Rock gets vaporized by spock! Spock wins!";
+            return "Rock gets vaporized by spock! Rock loses!";
     }
 
     @Override

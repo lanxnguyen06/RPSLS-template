@@ -12,11 +12,11 @@ public class Spock extends Choice{
         if  (otherPlayerChoice instanceof Rock)
             return "Spock vaporizes rock! Spock wins!";
         else if (otherPlayerChoice instanceof Paper)
-            return "Spock gets disproved by paper! Paper wins!";
+            return "Spock gets disproved by paper! Spock loses!";
         else if (otherPlayerChoice instanceof Scissors)
             return "Spock melts rock! Spock wins!";
         else if (otherPlayerChoice instanceof Lizard)
-            return "Spock gets poisoned by lizard! Lizard wins!";
+            return "Spock gets poisoned by lizard! Spock loses!";
         else if (otherPlayerChoice instanceof Spock)
             return "Spock does nothing to spock! It's a tie";
     }
