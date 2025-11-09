@@ -42,9 +42,9 @@ public class RockPaperScissorsLizardSpock {
             return null;
         else{
             switch(choice){
-                case "lizard":
-                    return new Lizard();
-                case "paper":
+                case "lizard": // takes in string input "lizard"
+                    return new Lizard(); // converts the string into a choice by returning a lizard object (in which is a lizard is a subclass of choice)
+                case "paper": // does the same thing for the rest of them
                     return new Paper();
                 case "rock":
                     return new Rock();
@@ -62,7 +62,7 @@ public class RockPaperScissorsLizardSpock {
 
     // TODO: implement a method to get a random choice for the computer
     private Choice getRandomChoice() {
-        int rando = random.nextInt(5); // taken from Random class, 0-4 (exclusive of 5)
+        int rando = random.nextInt(5); // taken from Random class, 0-4 (exclusive of 5). chose 5 because there are 5 choices to choose from
 
         switch (rando){
             case 0:
