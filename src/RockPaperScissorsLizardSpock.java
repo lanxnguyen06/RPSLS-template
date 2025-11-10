@@ -31,6 +31,24 @@ public class RockPaperScissorsLizardSpock {
     public void playRound() {
         System.out.printf("<<Player name>>, please enter %s, %s, %s, %s, or %s: %n", GameChoices.ROCK, GameChoices.PAPER,
                 GameChoices.SCISSORS, GameChoices.LIZARD, GameChoices.SPOCK);
+
+        String choice = scanner.nextLine();
+        Choice playerChoice = getChoice(choice);
+        Choice computerChoice = getRandomChoice();
+
+        while (playerChoice == null){ // if user enters a string that isn't any of the choices it will still be converted to a choice but will be null so it loops back
+            System.out.println("That's not an option, pick again.");
+            System.out.printf("<<Player name>>, please enter %s, %s, %s, %s, or %s: %n", GameChoices.ROCK, GameChoices.PAPER,
+                GameChoices.SCISSORS, GameChoices.LIZARD, GameChoices.SPOCK);
+
+            choice = scanner.nextLine();
+            playerChoice = getChoice(choice);
+        }
+
+        System.out.println(player.getName() + " chose " + playerChoice.getName());
+        System.out.println(computer.getName() + " chose " + computerChoice.getName());
+
+
         // ...
     }
 
@@ -53,7 +71,7 @@ public class RockPaperScissorsLizardSpock {
                 case "spock":
                     return new Spock();
                 default:
-                    return new Lizard(); // default case
+                    return null; // default case
             }
         }
         // Check the passed string and return a Choice object (i.e., Rock, Paper, Scissors, Lizard, or Spock)
@@ -76,7 +94,7 @@ public class RockPaperScissorsLizardSpock {
             case 4:
                 return new Spock();
             default:
-                return new Lizard(); // default case
+                return null; // default case
         }
         // Based on a random number, return a Choice object (i.e., Rock, Paper, Scissors, Lizard, or Spock)
         // Pick a default case
