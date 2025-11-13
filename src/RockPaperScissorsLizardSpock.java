@@ -48,7 +48,19 @@ public class RockPaperScissorsLizardSpock {
         System.out.println(player.getName() + " chose " + playerChoice.getName());
         System.out.println(computer.getName() + " chose " + computerChoice.getName());
 
+        int point = playerChoice.compete(playerChoice);
 
+        if (point == 1){
+            player.addWin();
+            System.out.println(player.getName() + " wins this round!");
+        }
+        else if (point == -1){
+            computer.addWin();
+            System.out.println(computer.getName() + " wins this round!");
+        }
+        else if (point == 0){
+            System.out.println("This round ends in a tie!");
+        }
         // ...
     }
 
