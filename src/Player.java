@@ -24,9 +24,4 @@
     public void addWin(){
         wins++;
     }
-
-    public void resetWins(){
-        wins = 0;
-    }
-    // TODO: implement.
 }

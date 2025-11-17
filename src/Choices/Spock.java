@@ -4,9 +4,10 @@ public class Spock extends Choice{
 
     @Override
     public String getName(){
-        return GameChoices.ROCK;
+        return GameChoices.SPOCK;
     }
 
+    @Override
     public String competeExplanation(Choice otherPlayerChoice) {
         switch (otherPlayerChoice){
             case Rock r:

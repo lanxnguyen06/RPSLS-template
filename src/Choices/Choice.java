@@ -6,13 +6,6 @@
 
 package Choices;
 
-// TODO: implement Choice
-// Choice should function as the Base class for all the choices
-// There is no default Choice!
-
-// Rock was already partially implemented as an example
-// You may make changes to the structure and type of both classes!
-
 public abstract class Choice {
 
     public abstract String getName();
